@@ -3,11 +3,9 @@
 	import '../hljs.css';
 
 	import Nav from './_site-components/Nav.svelte';
-
-	export let data;
 </script>
 
-<Nav sections={data.sections} />
+<Nav/>
 <main>
 	<slot />
 </main>
