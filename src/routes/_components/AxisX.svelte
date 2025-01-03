@@ -97,12 +97,10 @@
 	input[type='checkbox'] {
 		margin-left: 0;
 	}
-
 	label.number {
 		display: flex;
 		justify-content: space-between;
 	}
-
 	input[type='number'] {
 		max-width: 35px;
 		margin-left: 10px;

@@ -2,10 +2,7 @@
 	import { LayerCake, Svg } from 'layercake';
 	import { nest } from 'd3-collection';
 	import { scaleQuantize } from 'd3-scale';
-
 	import CalendarMonth from '../../_components/CalendarMonth.svelte';
-
-	// This example loads csv data as json using @rollup/plugin-dsv
 	import dates from '../../_data/dates.csv';
 
 	const monthNames = [
@@ -30,15 +27,10 @@
 
 	const gutter = 10;
 	const seriesColors = ['#fff5cc', '#ffeba9', '#ffe182', '#ffd754', '#ffcc00'];
-
-	/* --------------------------------------------
-	 * Group by month then by date
-	 */
 	const byMonthByDate = nest()
 		.key(d => d.date.getUTCMonth())
 		.key(d => d.timestring.split('T')[0])
 		.entries(datesTransformed);
-
 	const sortedData = byMonthByDate.sort((a, b) => a.key - b.key);
 </script>
 
@@ -66,13 +58,6 @@
 {/each}
 
 <style>
-	/*
-		The wrapper div needs to have an explicit width and height in CSS.
-		It can also be a flexbox child or CSS grid element.
-		The point being it needs dimensions since the <LayerCake> element will
-		expand to fill it.
-		The width is being set inline below.
-	*/
 	.chart-container {
 		--margin-top: 25px;
 		display: inline-block;

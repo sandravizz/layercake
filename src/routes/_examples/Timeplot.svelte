@@ -2,12 +2,9 @@
 	import { LayerCake, Svg, calcExtents } from 'layercake';
 	import { timeDay } from 'd3-time';
 	import { scaleBand, scaleTime } from 'd3-scale';
-
 	import ScatterSvg from '../../_components/Scatter.svg.svelte';
 	import AxisX from '../../_components/AxisX.svelte';
 	import AxisY from '../../_components/AxisY.svelte';
-
-	// This example loads csv data as json using @rollup/plugin-dsv
 	import data from '../../_data/days.csv';
 
 	const xKey = 'seconds';
@@ -26,15 +23,10 @@
 		return d;
 	});
 
-	/* --------------------------------------------
-	 * Generate a range of days in between the min and max
-	 * in case we are missing any in our data so we can show empty days for them
-	 */
 	const extents = calcExtents(daysTransformed, {
 		x: d => d.timestring
 	});
 
-	// Convert to string even though it is one to make Typescript happy
 	const minDate = extents.x[0]
 		.toString()
 		.split('T')[0]
@@ -78,12 +70,6 @@
 </div>
 
 <style>
-	/*
-		The wrapper div needs to have an explicit width and height in CSS.
-		It can also be a flexbox child or CSS grid element.
-		The point being it needs dimensions since the <LayerCake> element will
-		expand to fill it.
-	*/
 	.chart-container {
 		width: 100%;
 		height: 250px;

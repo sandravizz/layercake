@@ -1,9 +1,7 @@
 <script>
 	import { LayerCake, Svg } from 'layercake';
 	import { scaleOrdinal, scaleBand } from 'd3-scale';
-
 	import ForceLayout from '../../_components/CirclePackForce.svelte';
-
 	import data from '../../_data/dots.json';
 
 	const xKey = 'category';
@@ -19,9 +17,6 @@
 		seriesNameSet.add(d[zKey]);
 	});
 
-	/* --------------------------------------------
-	 * Convert this to an array so we can use it in our scales
-	 */
 	const seriesNames = [...seriesNameSet];
 
 	let manyBodyStrength = 3;
@@ -53,12 +48,6 @@
 </div>
 
 <style>
-	/*
-		The wrapper div needs to have an explicit width and height in CSS.
-		It can also be a flexbox child or CSS grid element.
-		The point being it needs dimensions since the <LayerCake> element will
-		expand to fill it.
-	*/
 	.chart-container {
 		width: 100%;
 		height: 250px;

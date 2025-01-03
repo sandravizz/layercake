@@ -1,24 +1,19 @@
 <script>
 	import { LayerCake, Svg, flatten, stack } from 'layercake';
-
 	import { scaleOrdinal } from 'd3-scale';
 	import { format } from 'd3-format';
 	import { timeParse, timeFormat } from 'd3-time-format';
-
 	import AxisX from '../../_components/AxisX.svelte';
 	import AxisY from '../../_components/AxisY.svelte';
 	import AreaStacked from '../../_components/AreaStacked.svelte';
-
 	import data from '../../_data/fruit.csv';
 
 	const xKey = 'month';
 	const yKey = [0, 1];
 	const zKey = 'key';
 	const xKeyCast = timeParse('%Y-%m-%d');
-
 	const seriesNames = Object.keys(data[0]).filter(d => d !== xKey);
 	const seriesColors = ['#ff00cc', '#ff7ac7', '#ffb3c0', '#ffe4b8'];
-
 	const formatLabelX = timeFormat('%b. %-d');
 	const formatLabelY = d => format(`~s`)(d);
 

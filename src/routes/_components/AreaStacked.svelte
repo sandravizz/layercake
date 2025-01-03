@@ -9,9 +9,7 @@
 	const xKey = 'month';
 	const yKey = [0, 1];
 	const zKey = 'key';
-
 	const parseDate = timeParse('%Y-%m-%d');
-
 	const seriesNames = Object.keys(data[0]).filter(d => d !== xKey);
 	const seriesColors = ['#ff00cc', '#ff7ac7', '#ffb3c0', '#ffe4b8'];
 

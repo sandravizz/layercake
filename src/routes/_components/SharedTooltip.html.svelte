@@ -2,26 +2,20 @@
 	import { LayerCake, Svg, Html } from 'layercake';
 	import { scaleOrdinal } from 'd3-scale';
 	import { timeParse, timeFormat } from 'd3-time-format';
-
 	import MultiLine from '../../_components/MultiLine.svelte';
 	import SharedTooltip from '../../_components/SharedTooltip.html.svelte';
-
 	import data from '../../_data/fruit.csv';
 
 	const xKey = 'month';
 	const yKey = 'value';
 	const zKey = 'key';
-
 	const seriesNames = Object.keys(data[0]).filter(d => d !== xKey);
 	const seriesColors = ['#ffe4b8', '#ffb3c0', '#ff7ac7', '#ff00cc'];
-
 	const parseDate = timeParse('%Y-%m-%d');
-
 	const dataLong = seriesNames.map(key => {
 		return {
 			key,
 			values: data.map(d => {
-				// Put this in a conditional so that we don't recast the data on second render
 				d[xKey] = typeof d[xKey] === 'string' ? parseDate(d[xKey]) : d[xKey];
 				return {
 					key,
@@ -32,9 +26,6 @@
 		};
 	});
 
-	// Make a flat array of the `values` of our nested series
-	// we can pluck the `value` field from each item in the array to measure extents
-	
 	const flatten = data =>
 		data.reduce((memo, group) => {
 			return memo.concat(group.values);

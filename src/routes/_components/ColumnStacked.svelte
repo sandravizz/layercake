@@ -2,16 +2,12 @@
 	import { LayerCake, Svg, flatten, uniques } from 'layercake';
 	import { stack } from 'd3-shape';
 	import { scaleBand, scaleOrdinal } from 'd3-scale';
-
 	import ColumnStacked from '../../_components/ColumnStacked.svelte';
-
-	// This example loads csv data as json using @rollup/plugin-dsv
 	import data from '../../_data/fruitOrdinal.csv';
 
 	const xKey = 'year';
 	const yKey = [0, 1];
 	const zKey = 'key';
-
 	const seriesNames = Object.keys(data[0]).filter(d => d !== xKey);
 	const seriesColors = ['#00e047', '#7ceb68', '#b7f486', '#ecfda5'];
 
@@ -47,12 +43,6 @@
 </div>
 
 <style>
-	/*
-		The wrapper div needs to have an explicit width and height in CSS.
-		It can also be a flexbox child or CSS grid element.
-		The point being it needs dimensions since the <LayerCake> element will
-		expand to fill it.
-	*/
 	.chart-container {
 		width: 100%;
 		height: 250px;

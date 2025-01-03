@@ -2,14 +2,12 @@
 	import { LayerCake, Svg, Html, groupLonger, flatten } from 'layercake';
 	import { scaleOrdinal } from 'd3-scale';
 	import { timeParse, timeFormat } from 'd3-time-format';
-	import { format } from 'd3-format';
-	
+	import { format } from 'd3-format';	
 	import MultiLine from '../../_components/MultiLine.svelte';
 	import AxisX from '../../_components/AxisX.svelte';
 	import AxisY from '../../_components/AxisY.svelte';
 	import Labels from '../../_components/GroupLabels.html.svelte';
 	import SharedTooltip from '../../_components/SharedTooltip.html.svelte';
-	
 	import data from '../../_data/fruit.csv';
 
 	const xKey = 'month';

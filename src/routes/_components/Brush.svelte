@@ -1,15 +1,11 @@
 <script>
 	import { LayerCake, Svg, Html } from 'layercake';
-
 	import Line from '../../_components/Line.svelte';
 	import Area from '../../_components/Area.svelte';
 	import Brush from '../../_components/Brush.html.svelte';
-
-	// This example loads csv data as json using @rollup/plugin-dsv
 	import data from '../../_data/points.csv';
 
 	let brushExtents = [null, null];
-
 	const xKey = 'myX';
 	const yKey = 'myY';
 
@@ -57,12 +53,6 @@
 </div>
 
 <style>
-	/*
-		The wrapper div needs to have an explicit width and height in CSS.
-		It can also be a flexbox child or CSS grid element.
-		The point being it needs dimensions since the <LayerCake> element will
-		expand to fill it.
-	*/
 	.brushed-chart-container {
 		width: 100%;
 		height: 80%;

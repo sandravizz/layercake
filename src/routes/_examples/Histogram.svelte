@@ -1,25 +1,18 @@
 <script>
 	import { LayerCake, Svg, bin, takeEvery } from 'layercake';
-
 	import { extent } from 'd3-array';
 	import { scaleBand } from 'd3-scale';
 	import { format } from 'd3-format';
-
 	import Column from '../../_components/Column.svelte';
 	import AxisX from '../../_components/AxisX.svelte';
 	import AxisY from '../../_components/AxisY.svelte';
-
 	import calcThresholds from '../../_modules/calcThresholds.js';
-
 	import data from '../../_data/unemployment.js';
 
 	const f = format('.2f');
-
 	const xKey = ['x0', 'x1'];
 	const yKey = 'length';
-
 	let binCount = 40;
-
 	const domain = extent(data);
 
 	$: thresholds = calcThresholds(domain, binCount);
@@ -59,12 +52,6 @@
 </div>
 
 <style>
-	/*
-		The wrapper div needs to have an explicit width and height in CSS.
-		It can also be a flexbox child or CSS grid element.
-		The point being it needs dimensions since the <LayerCake> element will
-		expand to fill it.
-	*/
 	.chart-container {
 		width: 100%;
 		height: 250px;

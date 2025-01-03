@@ -2,14 +2,11 @@
 	import { LayerCake, Svg } from 'layercake';
 	import { scaleOrdinal } from 'd3-scale';
 	import { schemeCategory10 } from 'd3-scale-chromatic';
-
 	import ForceDirectedGraph from '../../_components/ForceDirectedGraph.svelte';
-
 	import data from '../../_data/miserables.json';
 
 	const xKey = 'id';
 	const zKey = 'group';
-
 	const seriesNames = new Set();
 
 	data.nodes.forEach(d => {
@@ -33,12 +30,6 @@
 </div>
 
 <style>
-	/*
-		The wrapper div needs to have an explicit width and height in CSS.
-		It can also be a flexbox child or CSS grid element.
-		The point being it needs dimensions since the <LayerCake> element will
-		expand to fill it.
-	*/
 	.chart-container {
 		width: 100%;
 		height: 250px;

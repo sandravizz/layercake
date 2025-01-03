@@ -1,13 +1,8 @@
 <script>
 	import { calcExtents, flatten } from 'layercake';
-
 	import SmallMultipleWrapper from '../../_components/SmallMultipleWrapper.svelte';
-
 	import dataSeries from '../../_data/pointSeries.js';
 
-	/* --------------------------------------------
-	 * Grab the extents of the full dataset
-	 */
 	const extentGetters = {
 		x: d => d.x,
 		y: d => d.y
@@ -15,9 +10,6 @@
 
 	const fullExtents = calcExtents(flatten(dataSeries), extentGetters);
 
-	/* --------------------------------------------
-	 * Sort by the last value
-	 */
 	dataSeries.sort((a, b) => {
 		return b[b.length - 1].y - a[a.length - 1].y;
 	});
@@ -52,12 +44,6 @@
 	input {
 		margin-right: 7px;
 	}
-	/*
-		The wrapper div needs to have an explicit width and height in CSS.
-		It can also be a flexbox child or CSS grid element.
-		The point being it needs dimensions since the <LayerCake> element will
-		expand to fill it.
-	*/
 	.small-multiple-container {
 		position: relative;
 		display: inline-block;
