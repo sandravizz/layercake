@@ -9,7 +9,6 @@
 	import AxisY from '../../_components/AxisY.svelte';
 	import AreaStacked from '../../_components/AreaStacked.svelte';
 
-	// This example loads csv data as json using @rollup/plugin-dsv
 	import data from '../../_data/fruit.csv';
 
 	const xKey = 'month';
@@ -23,9 +22,6 @@
 	const formatLabelX = timeFormat('%b. %-d');
 	const formatLabelY = d => format(`~s`)(d);
 
-	/* --------------------------------------------
-	 * Cast data
-	 */
 	data.forEach(d => {
 		d[xKey] = typeof d[xKey] === 'string' ? xKeyCast(d[xKey]) : d[xKey];
 
@@ -58,12 +54,6 @@
 </div>
 
 <style>
-	/*
-		The wrapper div needs to have an explicit width and height in CSS.
-		It can also be a flexbox child or CSS grid element.
-		The point being it needs dimensions since the <LayerCake> element will
-		expand to fill it.
-	*/
 	.chart-container {
 		width: 100%;
 		height: 250px;

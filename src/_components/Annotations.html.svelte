@@ -1,7 +1,4 @@
-<!--
-	@component
-	Adds text annotations based on a config object that has CSS styles as fields.
- -->
+
 <script>
 	const vals = ['top', 'right', 'bottom', 'left'];
 

@@ -4,15 +4,12 @@
 	import hljsDefineSvelte from '../_modules/hljsDefineSvelte.js';
 
 	hljs.registerLanguage('svelte', hljsDefineSvelte);
-
 	hljsDefineSvelte(hljs);
 
 </script>
 
 <svelte:head>
 	<title>Sandravizz</title>
-	<meta name="og:title" content="Sandravizz" />
-	<meta name="twitter:title" content="Sandravizz" />
 </svelte:head>
 
 <div class="main">
@@ -21,9 +18,7 @@
 	</div>
 
 	<div id="dek">
-		<p>
-			Placeholder
-		</p>
+		<p> Placeholder</p>
 	</div>
 
 	<div id="gallery">
@@ -48,20 +43,11 @@
 		box-sizing: border-box;
 		overflow: hidden;
 	}
-
 	h1 {
 		font-family: 'SignPainter';
 		font-size: 61px;
-	}
-
-	h1 {
 		display: inline-block;
 		vertical-align: bottom;
-	}
-	.logo-container {
-		white-space: nowrap;
-	}
-	h1 {
 		margin-bottom: 7px;
 	}
 	.gallery-item {
@@ -72,11 +58,9 @@
 		height: 140px;
 		margin-bottom: 60px;
 	}
-
 	.gallery-item :global(.chart-container) {
 		height: 100% !important;
 	}
-
 	@media (max-width: 650px) {
 		.gallery-item {
 			width: 100%;
@@ -87,7 +71,6 @@
 			font-size: 59px;
 		}
 	}
-
 	.gallery-item:nth-child(odd) {
 		margin-right: 5%;
 	}

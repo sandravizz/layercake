@@ -1,65 +1,20 @@
 <script>
-	import { goto } from '$app/navigation';
 	import { page } from '$app/stores';
 
 	let path;
-
 	$: isServiceWorker = $page.url.pathname === '/service-worker.js';
-
 	let segment = '';
 
 	$: if (!isServiceWorker) {
 		path = $page.url.pathname;
-		// type = path.split('/')[1];
 		segment = `/${path.replace('/', '')}`;
-		// segment = `/${path.replace('/', '').replace(/\$/, '')}`;
-		// slug = path.replace(/\/$/, '').split('/').pop();
 	}
 
-	// let basePath = '/';
 	let open = false;
-
 	let nav;
-
-	const slimName = d => d.split(' (')[0];
-
-	function loadPage() {
-		open = false;
-		goto(this.value || '/');
-	}
-
-	function toggleOpen() {
-		// if the menu is closing, scroll back to the top *after* it
-		// shuts. otherwise, scroll back to the top immediately
-		// (just in case the user reopened before it happened).
-		// The reason we don't just do it when the menu opens is
-		// that the scrollbar visibly flashes
-		if (open) {
-			setTimeout(() => {
-				if (!open) {
-					nav.scrollTop = 0;
-				}
-			}, 350);
-		} else {
-			nav.scrollTop = 0;
-		}
-		open = !open;
-	}
 </script>
 
-<!-- svelte-ignore a11y_no_static_element_interactions -->
-<div
-	class="{open ? 'open' : 'closed'} mousecatcher"
-	on:click={() => (open = false)}
-	on:keypress={() => (open = false)}
-></div>
 <div class="container">
-	<!-- svelte-ignore a11y_no_static_element_interactions -->
-	<span
-		class="menu-link {open ? 'menu-open' : 'menu-closed'}"
-		on:click={toggleOpen}
-		on:keypress={toggleOpen}>{open ? 'Close' : 'Menu'}</span
-	>
 	<a href="/" class="logo">Sandravizz</a>
 </div>
 
@@ -77,24 +32,6 @@
 </nav>
 
 <style>
-	.mousecatcher {
-		position: fixed;
-		left: 0;
-		top: 0;
-		width: 100vw;
-		height: 100vh;
-		background-color: black;
-		pointer-events: none;
-		opacity: 0;
-		/*transition: opacity 0.4s;*/
-		z-index: 3;
-	}
-
-	.mousecatcher.open {
-		pointer-events: all;
-		opacity: 0.3;
-	}
-
 	@keyframes fadein {
 		from {
 			opacity: 0;
@@ -130,46 +67,9 @@
 		user-select: none;
 	}
 
-	.open {
-		transform: translate(0, 0);
-		transition: transform 0.3s cubic-bezier(0.17, 0.67, 0.24, 0.99);
-		overflow-y: auto;
-	}
 
-	.menu-link {
-		display: inline;
-		position: absolute;
-		top: 50%;
-		left: 1rem;
-		transform: translate(0, -50%);
-		font-size: 25px;
-		line-height: 1;
-		color: #000;
-		cursor: pointer;
-		/*font-weight: 500;*/
-		-webkit-tap-highlight-color: transparent;
-		-webkit-touch-callout: none;
-	}
-	.menu-link.menu-open {
-		color: #999;
-	}
-	.menu-link:hover {
-		text-decoration: underline;
-	}
 
-	.logo {
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -45%);
-		-webkit-tap-highlight-color: transparent;
-		-webkit-touch-callout: none;
-		line-height: 1;
-		text-decoration: none;
-		font-weight: bold;
-		color: #000;
-		font-size: 25px;
-	}
+
 
 	ul {
 		display: block;
@@ -187,12 +87,9 @@
 		display: block;
 	}
 
-	/**/
-
 	.primary li a {
 		display: block;
 		font-size: 25px;
-		/*font-weight: 500;*/
 		padding: 0 0 0.75em 0;
 		text-decoration: none;
 		line-height: 1;
@@ -226,11 +123,7 @@
 		}
 	}
 	@media (min-width: 645px) {
-		.mousecatcher,
-		.menu-link {
-			display: none;
-		}
-
+	
 		.container {
 			height: 3.5em;
 		}
@@ -277,8 +170,6 @@
 			top: 1rem;
 			left: 1.5rem;
 			text-decoration: none;
-			/*font-size: 1.5em;*/
-			/*font-weight: 700;*/
 			transform: none;
 		}
 
