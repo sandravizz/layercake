@@ -1,11 +1,9 @@
 <script>
 	import { LayerCake, Svg } from 'layercake';
-
 	import Line from '../../_components/Line.svelte';
 	import Area from '../../_components/Area.svelte';
 	import AxisX from '../../_components/AxisX.svelte';
 	import AxisY from '../../_components/AxisY.svelte';
-
 	import data from '../../_data/points.csv';
 
 	const xKey = 'myX';

@@ -1,6 +1,5 @@
 <script>
 	import '../app.css';
-	import '../hljs.css';
 	import Nav from './_site-components/Nav.svelte';
 </script>
 

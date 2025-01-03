@@ -1,11 +1,5 @@
 <script>
-	import hljs from 'highlight.js';
 	import examples from './_examples.js';
-	import hljsDefineSvelte from '../_modules/hljsDefineSvelte.js';
-
-	hljs.registerLanguage('svelte', hljsDefineSvelte);
-	hljsDefineSvelte(hljs);
-
 </script>
 
 <svelte:head>
