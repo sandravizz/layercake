@@ -15,7 +15,7 @@
 
 	let tickMarks = false;
 	let snapBaselineLabel = false;
-	let gridlines = true;
+	let gridlines = false;
 	let labelPosition = 'above';
 	let tickMarkLength = undefined;
 	let tickGutter = 0;
@@ -79,7 +79,7 @@
 					{tickGutter}
 					{dx}
 					{dy}
-					ticks={4}
+					ticks={0}
 				/>
 			</Svg>
 		</LayerCake>
@@ -93,12 +93,6 @@
 		gap: 10px;
 		height: 100%;
 	}
-	/*
-		The wrapper div needs to have an explicit width and height in CSS.
-		It can also be a flexbox child or CSS grid element.
-		The point being it needs dimensions since the <LayerCake> element will
-		expand to fill it.
-	*/
 	.chart-container {
 		flex: 1;
 	}

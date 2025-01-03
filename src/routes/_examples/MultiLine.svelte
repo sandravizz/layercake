@@ -1,22 +1,17 @@
 <script>
 	import { LayerCake, Svg, Html, groupLonger, flatten } from 'layercake';
-
 	import { scaleOrdinal } from 'd3-scale';
 	import { timeParse, timeFormat } from 'd3-time-format';
 	import { format } from 'd3-format';
-
+	
 	import MultiLine from '../../_components/MultiLine.svelte';
 	import AxisX from '../../_components/AxisX.svelte';
 	import AxisY from '../../_components/AxisY.svelte';
 	import Labels from '../../_components/GroupLabels.html.svelte';
 	import SharedTooltip from '../../_components/SharedTooltip.html.svelte';
-
-	// This example loads csv data as json using @rollup/plugin-dsv
+	
 	import data from '../../_data/fruit.csv';
 
-	/* --------------------------------------------
-	 * Set what is our x key to separate it from the other series
-	 */
 	const xKey = 'month';
 	const yKey = 'value';
 	const zKey = 'fruit';
@@ -26,9 +21,6 @@
 	const seriesNames = Object.keys(data[0]).filter(d => d !== xKey);
 	const seriesColors = ['#ffe4b8', '#ffb3c0', '#ff7ac7', '#ff00cc'];
 
-	/* --------------------------------------------
-	 * Cast values
-	 */
 	data.forEach(d => {
 		d[xKey] = typeof d[xKey] === 'string' ? xKeyCast(d[xKey]) : d[xKey];
 
@@ -66,7 +58,7 @@
 				snapLabels
 				tickMarks
 			/>
-			<AxisY ticks={4} format={formatLabelY} />
+			<AxisY ticks={0} format={formatLabelY} />
 			<MultiLine />
 		</Svg>
 
@@ -78,12 +70,6 @@
 </div>
 
 <style>
-	/*
-		The wrapper div needs to have an explicit width and height in CSS.
-		It can also be a flexbox child or CSS grid element.
-		The point being it needs dimensions since the <LayerCake> element will
-		expand to fill it.
-	*/
 	.chart-container {
 		width: 100%;
 		height: 250px;

@@ -1,6 +1,5 @@
 <script>
 	import { LayerCake, Svg, Html } from 'layercake';
-
 	import Annotations from '../../_components/Annotations.html.svelte';
 	import Arrows from '../../_components/Arrows.svelte';
 	import ArrowheadMarker from '../../_components/ArrowheadMarker.svelte';
@@ -12,9 +11,9 @@
 			left: '30%',
 			arrows: [
 				{
-					clockwise: false, // true or false, defaults to true
+					clockwise: false, 
 					source: {
-						anchor: 'left-bottom', // can be `{left, middle, right},{top-middle-bottom}`
+						anchor: 'left-bottom', 
 						dx: -2,
 						dy: -7
 					},
@@ -55,12 +54,6 @@
 </div>
 
 <style>
-	/*
-		The wrapper div needs to have an explicit width and height in CSS.
-		It can also be a flexbox child or CSS grid element.
-		The point being it needs dimensions since the <LayerCake> element will
-		expand to fill it.
-	*/
 	.chart-container {
 		width: 100%;
 		height: 250px;

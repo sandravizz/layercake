@@ -31,11 +31,6 @@ export default [
 		component: Line
 	},
 	{
-		title: 'Line + area',
-		slug: 'Line',
-		component: Line
-	},
-	{
 		title: 'WebGL Scatter (svg axes, quadtree hover)',
 		slug: 'ScatterWebgl',
 		component: ScatterWebGL

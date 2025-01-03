@@ -1,9 +1,6 @@
 <script>
 	import { LayerCake, Svg } from 'layercake';
-
 	import AxisX from '../../_components/AxisX.svelte';
-
-	// This example loads csv data as json using @rollup/plugin-dsv
 	import data from '../../_data/points.csv';
 
 	const xKey = 'myX';
@@ -14,10 +11,10 @@
 	});
 
 	let tickMarks = false;
-	let gridlines = true;
+	let gridlines = false;
 	let snapLabels = false;
-	let baseline = true;
-	let tickMarkLength = 6;
+	let baseline = false;
+	let tickMarkLength = 0;
 	let tickGutter = 0;
 	let dx = 0;
 	let dy = 12;
@@ -28,29 +25,23 @@
 		<label>
 			<input type="checkbox" bind:checked={tickMarks} /> tickMarks
 		</label>
-
 		<label>
 			<input type="checkbox" bind:checked={gridlines} /> gridlines
 		</label>
-
 		<label>
 			<input type="checkbox" bind:checked={baseline} /> baseline
 		</label>
-
 		<label>
 			<input type="checkbox" bind:checked={snapLabels} /> snapLabels
 		</label>
-
 		<label class="number" class:disabled={!tickMarks}>
 			<span class:disabled={!tickMarks}>tickMarkLength</span>
 			<input type="number" bind:value={tickMarkLength} disabled={!tickMarks} />
 		</label>
-
 		<label class="number">
 			tickGutter
 			<input type="number" bind:value={tickGutter} />
 		</label>
-
 		<label class="number">
 			dx
 			<input type="number" bind:value={dx} />
@@ -86,12 +77,6 @@
 		gap: 10px;
 		height: 100%;
 	}
-	/*
-		The wrapper div needs to have an explicit width and height in CSS.
-		It can also be a flexbox child or CSS grid element.
-		The point being it needs dimensions since the <LayerCake> element will
-		expand to fill it.
-	*/
 	.chart-container {
 		flex: 1;
 	}
